@@ -309,12 +309,20 @@ Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
 Solution:
-values = []
-for i in range(1000, 3001):
-    s = str(i)
-    if (int(s[0])%2==0) and (int(s[1])%2==0) and (int(s[2])%2==0) and (int(s[3])%2==0):
-        values.append(s)
-print ",".join(values)
+selected_numbers_list = []
+
+for number in range(1000, 3001):
+    for digit in str(number):
+        if int(digit) % 2 != 0:
+            valid_number = False
+            break
+        else:
+            valid_number = True
+
+    if valid_number:
+        selected_numbers_list.append(str(number))
+
+print(', '.join(selected_numbers_list))
 #----------------------------------------#
 
 #----------------------------------------#
